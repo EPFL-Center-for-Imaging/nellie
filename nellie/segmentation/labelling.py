@@ -127,8 +127,8 @@ class Label:
 
     def _run_frame(self, t):
         logger.info(f'Running semantic segmentation, volume {t}/{self.num_t - 1}')
-        original_in_mem = xp.asarray(self.im_memmap[t, ...])
-        frangi_in_mem = xp.asarray(self.frangi_memmap[t, ...])
+        original_in_mem = xp.array(self.im_memmap[t, ...])
+        frangi_in_mem = xp.array(self.frangi_memmap[t, ...])
         if self.otsu_thresh_intensity or self.threshold is not None:
             if self.otsu_thresh_intensity:
                 thresh, _ = otsu_threshold(original_in_mem[original_in_mem > 0])
